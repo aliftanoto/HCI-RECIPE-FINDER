@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+
+</body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #results-container {
+            text-align: center;
+        }
+
+        #recipe-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .recipe-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="search-container">
+        <h1>Recipe Finder</h1>
+        <input type="text" id="search-input" placeholder="Search for recipes">
+        <button onclick="searchRecipes()">Search</button>
+    </div>
+
+    <div id="results-container">
+        <h2>Results</h2>
+        <ul id="recipe-list"></ul>
+    </div>
+
+    <script>
+        function searchRecipes() {
+            var recipes = [
+                "Spaghetti Bolognese",
+                "Chicken Alfredo",
+                "Vegetarian Stir-Fry",
+                "Chocolate Cake",
+                "Salmon Salad"
+            ];
+
+            
+            var searchInput = document.getElementById("search-input").value.toLowerCase();
+
+            
+            var filteredRecipes = recipes.filter(function (recipe) {
+                return recipe.toLowerCase().includes(searchInput);
+            });
+
+            
+            displayResults(filteredRecipes);
+        }
+
+        function displayResults(recipes) {
+            var recipeList = document.getElementById("recipe-list");
+            recipeList.innerHTML = ""; 
+
+            recipes.forEach(function (recipe) {
+                var listItem = document.createElement("li");
+                listItem.className = "recipe-item";
+                listItem.textContent = recipe;
+                recipeList.appendChild(listItem);
+            });
+        }
+    </script>
+
+</body>
+</html>
